@@ -6,6 +6,7 @@ const expressErrorHandler = require('express-async-handler');
 userApi.post('/postblog', expressErrorHandler(async (req, res) => {
     let userCollectionObj = req.app.get("myblogObj")
     let topic=req.body.name;
+      topic=topic.toUpperCase();
     let user = await userCollectionObj.findOne({ name: topic})
     if(user==null) {
         await userCollectionObj.insertOne({name:topic,subtopics:[]});
@@ -20,13 +21,16 @@ userApi.post('/postblog', expressErrorHandler(async (req, res) => {
 userApi.get('/topics',expressErrorHandler(async (req, res) => {
     let userCollectionObj = req.app.get("myblogObj")
     let topics = await userCollectionObj.find().toArray();
+      topics.sort((a, b) => (a.name > b.name) ? 1 : -1)
     res.send({message:topics})
 }))
 userApi.post('/subtopics',expressErrorHandler(async (req, res) => {
     let userCollectionObj = req.app.get("myblogObj")
     let topic=req.body.name;
     let user = await userCollectionObj.findOne({ name: topic})
-    res.send({message:user.subtopics})
+    let k=user.subtopics
+     k.sort((a, b) => (a.name > b.name) ? 1 : -1)
+    res.send({message:k})
 
 
 }))
@@ -43,6 +47,7 @@ userApi.post('/subt',expressErrorHandler(async (req, res) => {
     let userCollectionObj2=req.app.get("myblogObj2")
     let topic=req.body.name;
     let subt=req.body.subt
+        subt=subt.toUpperCase();
     let user = await userCollectionObj.findOne({ name: topic})
     user.subtopics.push(subt)
     await userCollectionObj2.insertOne({ name: subt,text:""})
