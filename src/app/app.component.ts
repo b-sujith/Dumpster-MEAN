@@ -13,7 +13,7 @@ export class AppComponent {
   st:boolean = true;
   passw = '' ;
   fun(){
-    if (this.name=='nikhil' && this.passw=='depreternal'){
+    if (this.name=='bois' && this.passw=='SRSwamy'){
       this.st=false;
       this.rr.navigateByUrl('/blog')
     }
