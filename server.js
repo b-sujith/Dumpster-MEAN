@@ -1,7 +1,7 @@
 const exp = require("express")
 const app = exp();
 const userApi = require('./apis/api')
-const port = 8080
+const port = process.env.PORT || 8080
 const path = require("path")
 const mc = require("mongodb").MongoClient;
 app.listen(port, () => console.log(`server on ${port}...`))
