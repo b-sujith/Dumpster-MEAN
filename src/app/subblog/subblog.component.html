@@ -1,8 +1,8 @@
 <div class="container-fluid">
-    <div class="row bg-primary justify-content-center
+    <div class="row bg-light justify-content-center
             align-items-center" style="height:80px">
         <div class="col-3"></div>
-        <div class="col-6 text-light h2">
+        <div class="col-6 text-dark h2">
             {{kk}}
         </div>
     </div>
@@ -10,9 +10,9 @@
     <!--Division for taking input from user -->
     <div class="row mt-1" style="height:80px;">
         <div class="col-3 d-none col-md-3 d-md-block"></div>
-        <div class="col-12 col-md-6 bg-primary d-flex 
+        <div class="col-12 col-md-6 bg-light d-flex 
                     justify-content-center align-items-center 
-                    text-light h3">
+                    text-dark h3">
   
             <input [(ngModel)]="subtopic" type="text" 
                     value="" class="col-7 form-control"
@@ -35,14 +35,11 @@
   
         <div class="col-3 d-none col-md-3 d-md-block"></div>
   
-        <div class="col-12 col-md-6 bg-primary d-flex
+        <div class="col-12 col-md-6 bg-light d-flex
                     justify-content-center align-items-center
-                    text-light h3">
+                    text-dark h3">
   
-            <div class="col-9 text-light h3" (click)="final(x)">{{x}}</div>
-  
-            <input  type="button"
-                value="Delete" class="col-2 btn btn-danger">
+            <div class="col-9 text-dark h3" (click)="final(x)">{{x}}</div>
         </div>
           
         <div class="col-3 d-none col-md-3 d-md-block"></div>
